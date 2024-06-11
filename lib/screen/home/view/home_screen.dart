@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tic_tac_toe/screen/home/controller/home_controller.dart';
+import 'package:tic_tac_toe/utils/text_style.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -21,8 +22,41 @@ class _HomeScreenState extends State<HomeScreen> {
           () => Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
-                height: MediaQuery.sizeOf(context).height * 0.5,
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('Player X', style: txt25),
+                          Obx(
+                            () => Text(controller.xScore.toString(),
+                                style: txt25),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('Player O', style: txt25),
+                          Obx(
+                            () => Text(controller.oScore.toString(),
+                                style: txt25),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                flex: 3,
                 child: GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3),
@@ -30,7 +64,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: () {
-                        if (controller.l1[index] == '') {
+                        if (controller.l1[index] == '' &&
+                            controller.win.value.isEmpty) {
                           if (controller.count.value % 2 == 0) {
                             controller.l1[index] = "X";
                           } else {
@@ -48,10 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         decoration: BoxDecoration(
                             color: Colors.teal.shade50,
                             borderRadius: BorderRadius.circular(15)),
-                        child: Text(
-                          controller.l1[index],
-                          style: const TextStyle(fontSize: 50),
-                        ),
+                        child: Text(controller.l1[index], style: txt50),
                       ),
                     );
                   },
@@ -61,17 +93,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Text(
-                    controller.win.value == 'Draw'
-                        ? 'It\'s a Draw!'
-                        : '${controller.win.value} Wins!',
-                    style: const TextStyle(fontSize: 30, color: Colors.white),
-                  ),
+                      controller.win.value == 'Draw'
+                          ? 'It\'s a Draw!'
+                          : '${controller.win.value} Wins!',
+                      style: txt30),
                 ),
               ElevatedButton(
                 onPressed: () {
                   controller.resetGame();
                 },
-                child: const Text('Restart Game'),
+                child: Text('Restart Game', style: txtExo),
               ),
             ],
           ),

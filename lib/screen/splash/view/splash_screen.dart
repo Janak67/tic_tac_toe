@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -23,8 +25,19 @@ class _SplashScreenState extends State<SplashScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black,
-        body: Center(
-          child: Image.asset('assets/img/logo.png', height: 150),
+        body: Stack(
+          children: [
+            Image.asset('assets/img/background.jpg',
+                fit: BoxFit.cover,
+                opacity: const AlwaysStoppedAnimation(0.4),
+                height: MediaQuery.sizeOf(context).height),
+            BackdropFilter(
+              filter: ImageFilter.blur(sigmaY: 5, sigmaX: 3),
+              child: Center(
+                child: Image.asset('assets/img/logo.png', height: 150),
+              ),
+            ),
+          ],
         ),
       ),
     );

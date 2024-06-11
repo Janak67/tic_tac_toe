@@ -6,3 +6,11 @@ Map<String, WidgetBuilder> screen_routes = {
   '/': (context) => const SplashScreen(),
   'home': (context) => const HomeScreen(),
 };
+// &&controller.win.value.isEmpty
+// String w1 = l1[winn[0]];
+// String w2 = l1[winn[1]];
+// String w3 = l1[winn[2]];
+// if (w1 == w2 && w1 == w3 && w1.isNotEmpty) {
+//   win.value = w1;
+//   return;
+// }
