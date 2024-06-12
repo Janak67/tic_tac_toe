@@ -14,6 +14,12 @@ class _HomeScreenState extends State<HomeScreen> {
   HomeController controller = Get.put(HomeController());
 
   @override
+  void initState() {
+    super.initState();
+    controller.getScore();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(

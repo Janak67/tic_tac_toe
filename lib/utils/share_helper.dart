@@ -6,22 +6,22 @@ class ShareHelper {
   ShareHelper._();
 
   Future<int> getXScore() async {
-    final prefs = await SharedPreferences.getInstance();
-    return prefs.getInt('xScore') ?? 0;
+    SharedPreferences shr = await SharedPreferences.getInstance();
+    return shr.getInt('xScore') ?? 0;
   }
 
   Future<int> getOScore() async {
-    final prefs = await SharedPreferences.getInstance();
-    return prefs.getInt('oScore') ?? 0;
+    SharedPreferences shr = await SharedPreferences.getInstance();
+    return shr.getInt('oScore') ?? 0;
   }
 
   Future<void> saveXScore(int score) async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setInt('xScore', score);
+    SharedPreferences shr = await SharedPreferences.getInstance();
+    await shr.setInt('xScore', score);
   }
 
   Future<void> saveOScore(int score) async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setInt('oScore', score);
+    SharedPreferences shr = await SharedPreferences.getInstance();
+    await shr.setInt('oScore', score);
   }
 }
