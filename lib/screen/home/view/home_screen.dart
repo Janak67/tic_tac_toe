@@ -66,20 +66,35 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3),
-                  itemCount: controller.l1.length,
+                  itemCount: controller.list.length,
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: () {
-                        if (controller.l1[index] == '' &&
+                        if (controller.list[index] == '' &&
                             controller.win.value.isEmpty) {
-                          if (controller.count.value % 2 == 0) {
-                            controller.l1[index] = "X";
-                          } else {
-                            controller.l1[index] = "O";
-                          }
+                          controller.list[index] = "X";
                           controller.count.value++;
                           controller.checkWinner();
+                          // AI makes a move if the game is not over
+                          if (controller.win.value.isEmpty) {
+                            Future.delayed(
+                              const Duration(milliseconds: 500),
+                                  () {
+                                controller.aiMove();
+                              },
+                            );
+                          }
                         }
+                        // if (controller.list[index] == '' &&
+                        //     controller.win.value.isEmpty) {
+                        //   if (controller.count.value % 2 == 0) {
+                        //     controller.list[index] = "X";
+                        //   } else {
+                        //     controller.list[index] = "O";
+                        //   }
+                        //   controller.count.value++;
+                        //   controller.checkWinner();
+                        // }
                       },
                       child: Container(
                         alignment: Alignment.center,
@@ -89,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         decoration: BoxDecoration(
                             color: Colors.teal.shade50,
                             borderRadius: BorderRadius.circular(15)),
-                        child: Text(controller.l1[index], style: txt50),
+                        child: Text(controller.list[index], style: txt50),
                       ),
                     );
                   },
