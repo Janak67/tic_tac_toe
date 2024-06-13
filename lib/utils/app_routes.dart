@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:tic_tac_toe/screen/home/view/home_screen.dart';
+import 'package:tic_tac_toe/screen/multiplayer/view/multi_player_screen.dart';
 import 'package:tic_tac_toe/screen/splash/view/splash_screen.dart';
 
 Map<String, WidgetBuilder> screen_routes = {
   '/': (context) => const SplashScreen(),
   'home': (context) => const HomeScreen(),
+  'multi': (context) => const MultiPlayerScreen(),
 };
 // &&controller.win.value.isEmpty
 // String w1 = l1[winn[0]];
