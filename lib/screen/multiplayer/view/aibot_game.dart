@@ -4,14 +4,14 @@ import 'package:get/get.dart';
 import 'package:tic_tac_toe/screen/home/controller/home_controller.dart';
 import 'package:tic_tac_toe/utils/text_style.dart';
 
-class MultiPlayerScreen extends StatefulWidget {
-  const MultiPlayerScreen({super.key});
+class AibotGameScreen extends StatefulWidget {
+  const AibotGameScreen({super.key});
 
   @override
-  State<MultiPlayerScreen> createState() => _MultiPlayerScreenState();
+  State<AibotGameScreen> createState() => _AibotGameScreenState();
 }
 
-class _MultiPlayerScreenState extends State<MultiPlayerScreen> {
+class _AibotGameScreenState extends State<AibotGameScreen> {
   HomeController controller = Get.put(HomeController());
 
   @override
@@ -76,13 +76,17 @@ class _MultiPlayerScreenState extends State<MultiPlayerScreen> {
                         onTap: () {
                           if (controller.list[index] == '' &&
                               controller.win.value.isEmpty) {
-                            if (controller.count.value % 2 == 0) {
-                              controller.list[index] = "X";
-                            } else {
-                              controller.list[index] = "O";
-                            }
+                            controller.list[index] = "X";
                             controller.count.value++;
                             controller.checkWinner();
+                            if (controller.win.value.isEmpty) {
+                              Future.delayed(
+                                const Duration(milliseconds: 400),
+                                () {
+                                  controller.aiMove();
+                                },
+                              );
+                            }
                           }
                         },
                         child: Container(

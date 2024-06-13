@@ -2,6 +2,9 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:tic_tac_toe/screen/multiplayer/view/aibot_game.dart';
+import 'package:tic_tac_toe/screen/multiplayer/view/multi_player_screen.dart';
+import 'package:tic_tac_toe/utils/text_style.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -21,77 +24,60 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Image.asset('assets/img/natural.jpg',
                 height: MediaQuery.sizeOf(context).height, fit: BoxFit.cover),
-            // BackdropFilter(
-            //   filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
-            //   child: Align(
-            //     alignment: const Alignment(0, -0.8),
-            //     child: SvgPicture.asset('assets/icons/chat.svg',height: 280),
-            //   ),
-            // ),
             BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 2, sigmaY: 3),
-              child: Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      height: 160,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(25),
-                          color: Colors.pinkAccent),
-                      child: Column(
-                        children: [
-                          SvgPicture.asset('assets/icons/Robot.svg',height: 100),
-                          const Spacer(),
-                          Align(
-                            alignment: Alignment.bottomCenter,
-                            child: ElevatedButton(
-                              onPressed: () => Get.toNamed('multi'),
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.transparent,
-                                shadowColor: Colors.transparent,
-                              ),
-                              child: const Text(
-                                'Play With \nAI',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontFamily: 'exo',
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(width: 30),
-                    Container(
-                      height: 150,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(25),
-                          color: Colors.pinkAccent),
-                      child: Align(
-                        alignment: Alignment.bottomCenter,
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.transparent,
-                            shadowColor: Colors.transparent,
-                          ),
-                          child: const Text(
-                            'Local \nMultiPlayer',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontFamily: 'exo',
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18),
+              child: Column(
+                children: [
+                  const SizedBox(height: 80),
+                  SvgPicture.asset('assets/icons/welcome.svg', height: 200),
+                  const SizedBox(height: 80),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      InkWell(
+                        onTap: () => Get.to(() => const AibotGameScreen(),
+                            transition: Transition.leftToRightWithFade),
+                        child: Container(
+                          height: 170,
+                          width: 150,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(25),
+                              color: Colors.pinkAccent),
+                          child: Column(
+                            children: [
+                              const SizedBox(height: 15),
+                              Image.asset('assets/img/robot.png', height: 80),
+                              const Spacer(),
+                              Text('Play With \nAI',
+                                  textAlign: TextAlign.center, style: txt18),
+                            ],
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
+                      const SizedBox(width: 30),
+                      InkWell(
+                        onTap: () => Get.to(() => const MultiPlayerScreen(),
+                            transition: Transition.rightToLeftWithFade),
+                        child: Container(
+                          height: 170,
+                          width: 150,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(25),
+                              color: Colors.pinkAccent),
+                          child: Column(
+                            children: [
+                              const SizedBox(height: 10),
+                              Image.asset('assets/img/multi.png', height: 100),
+                              const Spacer(),
+                              Text('Local \nMultiPlayer',
+                                  textAlign: TextAlign.center, style: txt18),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
           ],

@@ -72,6 +72,7 @@
 //   }
 // }
 import 'dart:math';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tic_tac_toe/utils/share_helper.dart';
 
@@ -124,6 +125,21 @@ class HomeController extends GetxController {
     if (!list.contains('')) {
       win.value = 'Draw';
     }
+  }
+
+  Future<bool> onWillPop() async {
+    bool? result = await Get.defaultDialog(
+      title: 'Exit Game',
+      middleText: 'Are you sure you want to exit the game?',
+      textCancel: 'No',
+      textConfirm: 'Yes',
+      confirmTextColor: Colors.white,
+      onConfirm: () {
+        list.fillRange(0, 9, '');
+        Get.back(result: true);
+      },
+    );
+    return result ?? false;
   }
 
   void aiMove() {
