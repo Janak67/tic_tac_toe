@@ -19,7 +19,6 @@ class _MultiPlayerScreenState extends State<MultiPlayerScreen> {
     super.initState();
     controller.getScore();
   }
-
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
