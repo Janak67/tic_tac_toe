@@ -80,12 +80,21 @@ class _AibotGameScreenState extends State<AibotGameScreen> {
                             controller.count.value++;
                             controller.checkWinner();
                             if (controller.win.value.isEmpty) {
-                              Future.delayed(
-                                const Duration(milliseconds: 400),
-                                () {
-                                  controller.aiMove();
-                                },
-                              );
+                              if (controller.count.value == 1) {
+                                Future.delayed(
+                                  const Duration(milliseconds: 400),
+                                  () {
+                                    controller.botMove();
+                                  },
+                                );
+                              } else {
+                                Future.delayed(
+                                  const Duration(milliseconds: 400),
+                                  () {
+                                    controller.checkBotWin();
+                                  },
+                                );
+                              }
                             }
                           }
                         },

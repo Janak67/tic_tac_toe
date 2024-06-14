@@ -12,7 +12,7 @@ TextStyle txt30 = const TextStyle(
     fontFamily: 'exo',
     fontWeight: FontWeight.bold);
 TextStyle txtExo =
-    const TextStyle(fontFamily: 'exo', fontSize: 23, color: Colors.white);
+    const TextStyle(fontFamily: 'exo', fontSize: 25, color: Colors.white);
 TextStyle txt18 = const TextStyle(
     fontFamily: 'exo',
     color: Colors.white,
