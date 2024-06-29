@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:panara_dialogs/panara_dialogs.dart';
 import 'package:tic_tac_toe/utils/share_helper.dart';
 
 class HomeController extends GetxController {
@@ -16,8 +17,23 @@ class HomeController extends GetxController {
     oScore.value = await ShareHelper.shareHelper.getOScore();
   }
 
-  Future<bool> onWillPop() async {
-    bool? result = await Get.defaultDialog(
+  Future<bool> onWillPop(BuildContext context) async {
+    bool? result = await PanaraConfirmDialog.showAnimatedGrow(context,
+        title: 'Exit Game',
+        message: 'Are you sure you want to exit the game?',
+        cancelButtonText: 'No',
+        confirmButtonText: 'Yes',
+        onTapCancel: () => Navigator.pop(context),
+        onTapConfirm: () {
+          list.fillRange(0, 9, '');
+          Get.back(result: true);
+        },
+        panaraDialogType: PanaraDialogType.normal);
+    return result ?? false;
+  }
+
+/*
+bool? result = await Get.defaultDialog(
       title: 'Exit Game',
       middleText: 'Are you sure you want to exit the game?',
       textCancel: 'No',
@@ -29,8 +45,7 @@ class HomeController extends GetxController {
       },
     );
     return result ?? false;
-  }
-
+    */
   void resetGame() {
     list.value = List<String>.filled(9, '');
     count.value = 0;

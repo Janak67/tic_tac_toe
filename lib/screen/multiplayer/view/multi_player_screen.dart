@@ -19,10 +19,13 @@ class _MultiPlayerScreenState extends State<MultiPlayerScreen> {
     super.initState();
     controller.getScore();
   }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: controller.onWillPop,
+      onWillPop: () {
+        return controller.onWillPop(context);
+      },
       child: SafeArea(
         child: Scaffold(
           backgroundColor: Colors.black,

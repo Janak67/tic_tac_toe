@@ -23,7 +23,9 @@ class _AibotGameScreenState extends State<AibotGameScreen> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: controller.onWillPop,
+      onWillPop: () {
+        return controller.onWillPop(context);
+      },
       child: SafeArea(
         child: Scaffold(
           backgroundColor: Colors.black,
