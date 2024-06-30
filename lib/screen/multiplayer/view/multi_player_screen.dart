@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
-import 'package:tic_tac_toe/screen/home/controller/home_controller.dart';
-import 'package:tic_tac_toe/utils/text_style.dart';
+import 'package:tic_tac_toe/utils/import.dart';
 
 class MultiPlayerScreen extends StatefulWidget {
   const MultiPlayerScreen({super.key});

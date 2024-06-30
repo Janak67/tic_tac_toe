@@ -1,7 +1,5 @@
 import 'dart:ui';
-
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:tic_tac_toe/utils/import.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

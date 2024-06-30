@@ -1,8 +1,4 @@
-import 'dart:math';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:panara_dialogs/panara_dialogs.dart';
-import 'package:tic_tac_toe/utils/share_helper.dart';
+import 'package:tic_tac_toe/utils/import.dart';
 
 class HomeController extends GetxController {
   RxList list = ["", "", "", "", "", "", "", "", ""].obs;

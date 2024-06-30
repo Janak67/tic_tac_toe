@@ -1,10 +1,5 @@
 import 'dart:ui';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
-import 'package:tic_tac_toe/screen/multiplayer/view/aibot_game.dart';
-import 'package:tic_tac_toe/screen/multiplayer/view/multi_player_screen.dart';
-import 'package:tic_tac_toe/utils/text_style.dart';
+import 'package:tic_tac_toe/utils/import.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

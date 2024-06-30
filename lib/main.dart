@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:tic_tac_toe/utils/app_routes.dart';
+import 'package:tic_tac_toe/utils/import.dart';
 
 void main() {
   runApp(

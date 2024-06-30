@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:tic_tac_toe/screen/home/view/home_screen.dart';
-import 'package:tic_tac_toe/screen/multiplayer/view/aibot_game.dart';
-import 'package:tic_tac_toe/screen/multiplayer/view/multi_player_screen.dart';
-import 'package:tic_tac_toe/screen/splash/view/splash_screen.dart';
+import 'package:tic_tac_toe/utils/import.dart';
 
 Map<String, WidgetBuilder> screen_routes = {
   '/': (context) => const SplashScreen(),
@@ -10,7 +6,6 @@ Map<String, WidgetBuilder> screen_routes = {
   'multi': (context) => const MultiPlayerScreen(),
   'ai': (context) => const AibotGameScreen(),
 };
-
 // if (controller.list[index] == '' &&
 //     controller.win.value.isEmpty) {
 //   if (controller.count.value % 2 == 0) {
