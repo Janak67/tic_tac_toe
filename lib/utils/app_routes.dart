@@ -1,4 +1,4 @@
-import 'package:tic_tac_toe/utils/import.dart';
+import 'package:tic_tac_toe/utils/export.dart';
 
 Map<String, WidgetBuilder> screen_routes = {
   '/': (context) => const SplashScreen(),
@@ -6,6 +6,7 @@ Map<String, WidgetBuilder> screen_routes = {
   'multi': (context) => const MultiPlayerScreen(),
   'ai': (context) => const AibotGameScreen(),
 };
+
 // if (controller.list[index] == '' &&
 //     controller.win.value.isEmpty) {
 //   if (controller.count.value % 2 == 0) {

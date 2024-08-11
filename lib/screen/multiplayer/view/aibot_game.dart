@@ -1,4 +1,4 @@
-import 'package:tic_tac_toe/utils/import.dart';
+import 'package:tic_tac_toe/utils/export.dart';
 
 class AibotGameScreen extends StatefulWidget {
   const AibotGameScreen({super.key});
@@ -81,16 +81,12 @@ class _AibotGameScreenState extends State<AibotGameScreen> {
                               if (controller.count.value == 1) {
                                 Future.delayed(
                                   const Duration(milliseconds: 400),
-                                  () {
-                                    controller.botMove();
-                                  },
+                                  () => controller.botMove(),
                                 );
                               } else {
                                 Future.delayed(
                                   const Duration(milliseconds: 400),
-                                  () {
-                                    controller.checkBotWin();
-                                  },
+                                  () => controller.checkBotWin(),
                                 );
                               }
                             }
@@ -127,10 +123,9 @@ class _AibotGameScreenState extends State<AibotGameScreen> {
                   ),
                 ElevatedButton(
                   style: ButtonStyle(
-                      backgroundColor: WidgetStateProperty.all(Colors.black)),
-                  onPressed: () {
-                    controller.resetGame();
-                  },
+                    backgroundColor: WidgetStateProperty.all(Colors.black),
+                  ),
+                  onPressed: () => controller.resetGame(),
                   child: Text('Restart Game', style: txtExo),
                 ),
               ],

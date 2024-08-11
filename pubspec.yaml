@@ -39,6 +39,7 @@ dependencies:
   shared_preferences: ^2.2.3
   flutter_svg: ^2.0.10+1
   panara_dialogs: ^0.1.5
+  video_player: ^2.9.1
 #  floating: ^4.0.0
 #  clay_containers: ^0.3.4
 
@@ -79,6 +80,7 @@ flutter:
     - assets/img/
     - assets/fonts/
     - assets/icons/
+    - assets/video/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

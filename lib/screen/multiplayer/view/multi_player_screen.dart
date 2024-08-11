@@ -1,4 +1,4 @@
-import 'package:tic_tac_toe/utils/import.dart';
+import 'package:tic_tac_toe/utils/export.dart';
 
 class MultiPlayerScreen extends StatefulWidget {
   const MultiPlayerScreen({super.key});
@@ -114,10 +114,9 @@ class _MultiPlayerScreenState extends State<MultiPlayerScreen> {
                   ),
                 ElevatedButton(
                   style: ButtonStyle(
-                      backgroundColor: WidgetStateProperty.all(Colors.black)),
-                  onPressed: () {
-                    controller.resetGame();
-                  },
+                    backgroundColor: WidgetStateProperty.all(Colors.black),
+                  ),
+                  onPressed: () => controller.resetGame(),
                   child: Text('Restart Game', style: txtExo),
                 ),
               ],
@@ -128,3 +127,21 @@ class _MultiPlayerScreenState extends State<MultiPlayerScreen> {
     );
   }
 }
+/*
+      // Container child show code
+
+      controller.list[index].isEmpty
+                              ? null
+                              : Image.asset(controller.list[index]),
+
+      // this winner code
+      controller.win.value == 'Draw'
+                            ? Text('It\`s a Draw!', style: txt30)
+                            : Image.asset(
+                                controller.win.value == 'X'
+                                    ? 'assets/img/o_image.png'
+                                    : 'assets/img/x_image.png',
+                                height: 100,
+                              ),
+
+*/

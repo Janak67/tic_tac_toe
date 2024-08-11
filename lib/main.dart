@@ -1,4 +1,4 @@
-import 'package:tic_tac_toe/utils/import.dart';
+import 'package:tic_tac_toe/utils/export.dart';
 
 void main() {
   runApp(
